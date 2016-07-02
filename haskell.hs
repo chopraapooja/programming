@@ -59,9 +59,33 @@ let lookup0 = (!!0)
 lookup0 [1..5]
 let multiplesOf2 = ([0,2..] !!)
 multiplesOf2 2
+--Function Composition
+let foo = (4*).(10+)
+foo 5
+--Type System
+5::Integer
+"hello"::String
+'A'::Char
+True::Bool
+--if
+let haskell = if 1 == 1 then "awesome" else "awful"
+let for list fn = map fn list
+for [1..5] (*2)
+for [1..5] (\x -> show x)
+for [1..5] $ \x -> show x
+for [1..5] show
+-- foldl 2x+y != 2y+x
+let _2xPlusy x y = 2*x + y
+foldl _2xPlusy 4 [1,2,3]
+foldr _2xPlusy 4 [1,2,3]
+-----------------------------------------------------------------------
+-- Data Types
+data Color = Red | Blue | Green
+let say Red = "This is red"
+say Red
+let say Blue = "This is blue"
+say Blue
+let say x =  "This is not red and blue"
+say Green
 
-
-
-
-
-
+data Maybe x = Nothing | Just x
